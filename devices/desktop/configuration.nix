@@ -3,7 +3,7 @@
 {
   imports =
     [
-      ../../configs/default.nix
+      ../../configs/nixos/default.nix
       ../../dms/gnome.nix
     ];
   networking.hostName = "pc";
