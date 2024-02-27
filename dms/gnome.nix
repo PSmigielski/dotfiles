@@ -4,7 +4,6 @@
   services.xserver = {
     enable = true;
     # touchpad support VVVV 
-    #libinput.enable = true;
     layout = "pl";
     xkbVariant = "";
     displayManager.gdm = {
