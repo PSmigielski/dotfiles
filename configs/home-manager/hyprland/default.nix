@@ -6,6 +6,4 @@
     ./wofi.nix 
     ./foot.nix
   ];
-  # _module.args = { inherit inputs custom; };
-
 }

@@ -18,7 +18,9 @@
     ];
   
   time.timeZone = "Europe/Warsaw";
-
+  fonts.packages = with pkgs; [
+    (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" "RobotoMono"]; })
+  ];
   environment = {
     sessionVariables = rec {
       XDG_CACHE_HOME  = "$HOME/.cache";

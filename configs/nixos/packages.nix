@@ -23,6 +23,8 @@
     vscode
     neofetch
     appimage-run
+    roboto
+    (nerdfonts.override { fonts = [ "RobotoMono" ]; })
   ];
   services.flatpak.enable = true;
 }

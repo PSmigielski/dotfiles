@@ -12,10 +12,14 @@ let   custom = {
   };
 in
 {
+  fonts.fontconfig.enable = true;
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   imports = [
-    ../home-manager/hyprland/default.nix
+    ./hyprland/default.nix
+    ./programs/neovim.nix
+    ./programs/cava.nix
+    ./programs/zsh.nix
   ];
   _module.args = { inherit inputs custom; };
 
