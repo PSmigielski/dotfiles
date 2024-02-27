@@ -16,7 +16,8 @@
       ./sound.nix
       ./users.nix
     ];
-
+  
+  time.timeZone = "Europe/Warsaw";
 
   environment = {
     sessionVariables = rec {
@@ -38,6 +39,8 @@
   networking = {
     networkmanager.enable = true;
   };
+
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   programs.zsh = {
     enable = true;

@@ -3,9 +3,10 @@
 {
   services.xserver = {
     enable = true;
-    # touchpad support VVVV 
-    layout = "pl";
-    xkbVariant = "";
+    xkb = {
+      layout = "pl";
+      variant = "";
+    };
     displayManager.gdm = {
       enable = true;
       wayland = false;

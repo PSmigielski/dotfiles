@@ -7,7 +7,6 @@
       ../../configs/laptop.nix
       ../../dms/gnome.nix
     ];
-  time.timeZone = "Europe/Warsaw";
   networking.hostName = "laptop-yoga"; # Define your hostname.
   programs.light.enable = true;
   hardware.ledger.enable = true;
