@@ -18,6 +18,7 @@
     pavucontrol
     discord
     spotify
+    postman
     git
     vscode
     neofetch
