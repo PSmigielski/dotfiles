@@ -1,12 +1,14 @@
 { config, pkgs, inputs, ... }:
-let custom = {
-  fontsize = "12";
-  primary_accent = "cba6f7";
-  secondary_accent = "89b4fa";
-  tertiary_accent = "f5f5f5";
-  background = "11111B";
-  opacity = ".85";
-  cursor = "Numix-Cursor";
+let   custom = {
+    font = "RobotoMono Nerd Font";
+    fontsize = "12";
+    primary_accent = "cba6f7";
+    secondary_accent= "89b4fa";
+    tertiary_accent = "f5f5f5";
+    background = "11111B";
+    opacity = "1";
+    cursor = "Numix-Cursor";
+    palette = import ./colors;
   };
 in
 {
@@ -15,6 +17,7 @@ in
   imports = [
     ../home-manager/hyprland/default.nix
   ];
+  _module.args = { inherit inputs custom; };
 
   home.username = "psmigielski";
   home.homeDirectory = "/home/psmigielski";
