@@ -32,7 +32,7 @@
         "col.active_border" = "rgb(${custom.primary_accent})";
         "col.inactive_border" = "rgba(${custom.background}00)";
         allow_tearing = true;
-        layout = "dwindle";
+        layout = "master";
       };
       decoration = {
         rounding = 10;

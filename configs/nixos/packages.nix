@@ -24,6 +24,7 @@
     neofetch
     appimage-run
     roboto
+    gcc
     (nerdfonts.override { fonts = [ "RobotoMono" ]; })
   ];
   services.flatpak.enable = true;
