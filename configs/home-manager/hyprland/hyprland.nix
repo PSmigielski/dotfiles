@@ -135,8 +135,8 @@
         "$mainMod SHIFT, 9, movetoworkspace, 9"
         "$mainMod SHIFT, 0, movetoworkspace, 10"
         # Scroll workspace with mouse scrollwheel
-        "$mainMod, mouse_down, workspace, e+1"
-        "$mainMod, mouse_up, workspace, e-1"
+        "$mainMod TAB, right, workspace, e+1"
+        "$mainMod TAB, left, workspace, e-1"
       ];
     };
   };
