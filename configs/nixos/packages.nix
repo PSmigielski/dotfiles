@@ -25,7 +25,11 @@
     appimage-run
     roboto
     ranger
+    obsidian
     gcc
+    gimp
+    dbeaver
+
     (nerdfonts.override { fonts = [ "RobotoMono" ]; })
   ];
   services.flatpak.enable = true;

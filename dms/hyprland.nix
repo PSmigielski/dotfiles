@@ -4,6 +4,10 @@
   services = {
     xserver = {
       enable = true; 
+      xkb = {
+        layout = "pl";
+        variant = "";
+      };
       displayManager.gdm.enable = true;
     };
     gnome.gnome-keyring.enable = true;

@@ -18,6 +18,7 @@
         ",preferred,auto,auto"
         "eDP-1,1920x1080@60,0x0,1"
       ];
+      
       exec-once = [
         "waybar"
         "swaybg -i ~/photos/wallpapers/wallpaper.png"
@@ -32,7 +33,7 @@
         "col.active_border" = "rgb(${custom.primary_accent})";
         "col.inactive_border" = "rgba(${custom.background}00)";
         allow_tearing = true;
-        layout = "master";
+        layout = "dwindle";
       };
       decoration = {
         rounding = 10;
@@ -96,15 +97,20 @@
         "$mainMod, E, togglefloating "
         "$mainMod SHIFT, Q, killactive"
         # Focus Windows
-        "$mainMod, H, movefocus, l"
-        "$mainMod, L, movefocus, r"
-        "$mainMod, K, movefocus, u"
-        "$mainMod, J, movefocus, d"
+        "$mainMod ALT, left, movefocus, l"
+        "$mainMod ALT, right, movefocus, r"
+        "$mainMod ALT, up, movefocus, u"
+        "$mainMod ALT, down, movefocus, d"
+        # Resize windows
+        "$mainMod SHIFT, right, resizeactive, 10 0"
+        "$mainMod SHIFT, left, resizeactive, -10 0"
+        "$mainMod SHIFT, up, resizeactive, 0 -10"
+        "$mainMod SHIFT, down, resizeactive, 0 10"
         # Move Windows
-        "$mainMod SHIFT,H,movewindow,l"
-        "$mainMod SHIFT,L,movewindow,r"
-        "$mainMod SHIFT,K,movewindow,u"
-        "$mainMod SHIFT,J,movewindow,d"
+        "$mainMod,left,movewindow,l"
+        "$mainMod,right,movewindow,r"
+        "$mainMod,up,movewindow,u"
+        "$mainMod,down,movewindow,d"
         # Switch workspaces
         "$mainMod, 1, workspace, 1"
         "$mainMod, 2, workspace, 2"

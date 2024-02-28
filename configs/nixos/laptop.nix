@@ -4,5 +4,8 @@
     # touchpad support VVVV 
     libinput.enable = true;
   };
-  hardware.sensor.iio.enable = true;
+  hardware = {
+    sensor.iio.enable = true;
+    bluetooth.enable = true;
+  };	
 }

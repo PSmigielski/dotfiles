@@ -1,6 +1,9 @@
 { config, pkgs, ... }:
 {
-  services.printing.enable = true;
-  # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
+  services = {
+    printing.enable = true;
+    openssh.enable = true;
+    blueman.enable = true;
+  };
 } 
+
