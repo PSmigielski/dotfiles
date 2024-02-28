@@ -11,8 +11,6 @@
     htop
     macchanger
     brave
-    vim
-    neovim 
     wget
     firefox
     pavucontrol
@@ -29,7 +27,9 @@
     gcc
     gimp
     dbeaver
-
+    imagemagick
+    grim
+    slurp
     (nerdfonts.override { fonts = [ "RobotoMono" ]; })
   ];
   services.flatpak.enable = true;

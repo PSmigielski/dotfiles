@@ -20,6 +20,7 @@
       ];
       
       exec-once = [
+        "blueman-manager"111
         "waybar"
         "swaybg -i ~/photos/wallpapers/wallpaper.png"
         ''swayidle -w timeout 1800 'swaylock -f -i ~/photos/wallpapers/wallpaper.png' timeout 1805 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' before-sleep "swaylock -f -i ~/photos/wallpapers/wallpaper.png"''
@@ -87,7 +88,7 @@
         # Launch
         "$mainMod, RETURN, exec, foot"
         "$mainMod, D, exec, wofi"
-        ''$mainMod,P,exec,mkdir -p ~/photos/screenshots; grim -t png -g "$(slurp)" ~/photos/screenshots/$(date +%Y-%m-%d_%H-%m-%s).png''
+        ''$mainMod SHIFT,S,exec,mkdir -p ~/photos/screenshots; grim -t png -g "$(slurp)" ~/photos/screenshots/$(date +%Y-%m-%d_%H-%m-%s).png''
         "$mainMod SHIFT,N,exec, swaync-client -t -sw"
         "$mainMod SHIFT,L,exec, swaylock -f -i ~/photos/wallpapers/wallpaper.png"
         # Window Options
