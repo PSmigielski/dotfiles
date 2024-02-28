@@ -46,6 +46,7 @@ custom ? {
       ];
       modules-right= [
         "tray" 
+        "bluetooth"
         "battery"
         "pulseaudio" 
         "network"

@@ -32,6 +32,7 @@ in
     grim
     slurp
     swaybg
+    nwg-displays
     swayidle
     swaylock-effects
     swaynotificationcenter

@@ -6,6 +6,7 @@
       ../../configs/nixos/default.nix
       ../../configs/nixos/laptop.nix
       ../../dms/hyprland.nix
+      ./amdpowersave.nix
     ];
   networking.hostName = "laptop-yoga"; # Define your hostname.
   programs.light.enable = true;

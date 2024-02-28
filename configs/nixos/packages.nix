@@ -24,6 +24,7 @@
     neofetch
     appimage-run
     roboto
+    ranger
     gcc
     (nerdfonts.override { fonts = [ "RobotoMono" ]; })
   ];
