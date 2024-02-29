@@ -20,6 +20,7 @@ in
     ./programs/neovim.nix
     ./programs/cava.nix
     ./programs/zsh.nix
+    inputs.nixvim.homeManagerModules.nixvim
   ];
   _module.args = { inherit inputs custom; };
 

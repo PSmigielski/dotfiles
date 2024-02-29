@@ -1,42 +1,151 @@
-{ inputs , pkgs, ... }:
+{ config,inputs , pkgs, ... }:
 {
-  home.packages = with pkgs; [
-    ripgrep
-    #Language Servers
-    lua-language-server #Lua
-    nil
-    nixd 
-    gopls #Golang
-    rust-analyzer #Rust
-    zls #Zig
-    phpactor #php 
-    csharp-ls # C#
-    yaml-language-server #yaml
-    rPackages.languageserver #R
-    clang-tools #C
-    jdt-language-server #java 
-    python311Packages.python-lsp-server
-    #pkgs_stable.python311Packages.jedi-language-server #Python
-    # haskellPackages.hls # Haskell
-    nodePackages_latest.vscode-langservers-extracted #HTML,CSS, JSON
-    nodePackages_latest.vscode-langservers-extracted #HTML,CSS, JSON
-    nodePackages_latest.grammarly-languageserver #Markdown
-    nodePackages_latest.typescript-language-server #Javascript and Typescript
-    nodePackages_latest.bash-language-server #Bash
-    nodePackages_latest.dockerfile-language-server-nodejs #Dockerfiles
-    nodePackages_latest.yaml-language-server #Yaml
-    tree-sitter
-    nodePackages_latest.nodejs
-  ];
-   programs.neovim = {
+  programs.nixvim = {
     enable = true;
-    defaultEditor = true;
-    plugins = with pkgs.vimPlugins; [
-      #nvim-tree-lua
-      nvim-treesitter
-      elixir-tools-nvim
-      nvchad-ui
-      catppuccin-nvim
+    enableMan = true;
+    colorschemes.onedark.enable = true;
+    extraConfigLua = ''
+    -- Set highlight on search
+    vim.o.hlsearch = false
+
+    -- Make line numbers default
+    vim.wo.number = true
+
+    -- Enable mouse mode
+    vim.o.mouse = 'a'
+
+    -- Sync clipboard between OS and Neovim.
+    --  Remove this option if you want your OS clipboard to remain independent.
+    --  See `:help 'clipboard'`
+    vim.o.clipboard = 'unnamedplus'
+
+    -- Enable break indent
+    vim.o.breakindent = true
+
+    -- Save undo history
+    vim.o.undofile = true
+    -- Case-insensitive searching UNLESS \C or capital in search
+    vim.o.ignorecase = true
+    vim.o.smartcase = true
+
+    -- Keep signcolumn on by default
+    vim.wo.signcolumn = 'yes'
+
+    -- Decrease update time
+    vim.o.updatetime = 250
+    vim.o.timeoutlen = 300
+
+    -- Set completeopt to have a better completion experience
+    vim.o.completeopt = 'menuone,noselect'
+
+    -- NOTE: You should make sure your terminal supports this
+    vim.o.termguicolors = true
+    '';
+    extraPackages = with pkgs;[
+      vimPlugins.nvim-web-devicons
     ];
+    extraPlugins = with pkgs.vimPlugins;[
+      orgmode
+    ];
+    clipboard.register="unnamedplus";
+
+    plugins = {
+      dashboard = {
+        enable=true;
+      };
+      lsp={
+        enable = true;
+        servers = {
+          tsserver.enable=true;
+          rust-analyzer = {
+            enable = true;
+            installCargo = false;
+            installRustc = false;
+          };
+          lua-ls.enable=true;
+          rnix-lsp.enable=true;
+        };
+      };
+      luasnip.enable=true;
+      cmp_luasnip.enable=true;
+      cmp-treesitter.enable=true;
+      which-key.enable=true;
+      nvim-autopairs.enable=true;
+      neorg.enable=true;
+      neo-tree.enable=true;
+
+      treesitter = {
+        enable=true;
+        # folding=true;
+      };
+      barbar={
+        enable=true;
+        autoHide=true;
+        clickable=true;
+      };
+      nix.enable=true;
+      tmux-navigator.enable=true;
+      nvim-cmp = {
+        enable = true;
+        autoEnableSources = true;
+        sources = [
+          {name = "nvim_lsp";}
+          {name = "path";}
+          {name = "buffer";}
+          {name = "luasnip";}
+        ];
+        snippet.expand="luasnip";
+      };
+      lualine = {
+        enable = true;
+        iconsEnabled = true;
+        theme="onedark";
+        componentSeparators = {
+          left = " ";
+          right = " ";
+        };
+        sectionSeparators = {
+          left = " ";
+          right = " ";
+        };
+      };
+
+      comment-nvim = {
+        enable = true;
+      };
+
+      telescope = {
+        enable = true;
+        extensions = {
+          fzf-native={
+            enable=true;
+            caseMode="smart_case";
+          };
+        };
+      };
+      noice = {
+        enable = true;
+        lsp = {
+          override = {
+            "vim.lsp.util.convert_input_to_markdown_lines" = true;
+            "vim.lsp.util.stylize_markdown" = true;
+            "cmp.entry.get_documentation" = true;
+          };
+        };
+        cmdline = {
+          view = "cmdline";
+        };
+        presets = {
+          bottom_search = true; # use a classic bottom cmdline for search
+          command_palette = true; # position the cmdline and popupmenu together
+          long_message_to_split = true; # long messages will be sent to a split
+          inc_rename = false; # enables an input dialog for inc-rename.nvim
+          lsp_doc_border = false; # add a border to hover docs and signature help
+        };
+      };
+      none-ls = {
+        enable = true;
+      };
+    };
   };
 }
