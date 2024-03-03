@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, inputs, system, ... }:
 let   custom = {
     font = "RobotoMono Nerd Font";
     fontsize = "12";

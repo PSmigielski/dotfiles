@@ -1,4 +1,4 @@
-{ lib,config, pkgs, ... }:
+{ lib,config, pkgs, inputs, system, ... }:
 
 {
   nixpkgs.config.allowUnfree = true;
@@ -6,6 +6,7 @@
     clang
     cargo 
     rustc
+    mono
     gnumake
     figma-linux
     htop
@@ -30,6 +31,11 @@
     imagemagick
     grim
     slurp
+    unzip
+    gzip
+    jdk20
+    intelephense-1.10.2
+
     (nerdfonts.override { fonts = [ "RobotoMono" ]; })
   ];
   services.flatpak.enable = true;
