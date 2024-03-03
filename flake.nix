@@ -4,8 +4,6 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     hyprland.url = "github:hyprwm/Hyprland";
-    bionix.url = "github:PapenfussLab/bionix";
-    # neve.url = "github:redyf/Neve";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -23,26 +21,13 @@
     in
     {
     
-      nixosConfigurations.laptop = nixpkgs.lib.nixosSystem {
-          specialArgs = {inherit inputs system;};
+      nixosConfigurations.default = nixpkgs.lib.nixosSystem {
+          specialArgs = {inherit inputs;};
           modules = [ 
-            ./devices/laptop/configuration.nix
+            ./configuration.nix
             inputs.home-manager.nixosModules.default
           ];
-      };
-      nixosConfigurations.desktop = nixpkgs.lib.nixosSystem {
-          specialArgs = {inherit inputs system;};
-          modules = [ 
-            ./devices/desktop/configuration.nix
-            inputs.home-manager.nixosModules.default
-          ];
-      };
-      nixosConfigurations.server = nixpkgs.lib.nixosSystem {
-          specialArgs = {inherit inputs system;};
-          modules = [ 
-            ./devices/server/configuration.nix
-            inputs.home-manager.nixosModules.default
-          ];
-      };
+        };
+
     };
 }

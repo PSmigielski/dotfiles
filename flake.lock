@@ -1,20 +1,5 @@
 {
   "nodes": {
-    "bionix": {
-      "locked": {
-        "lastModified": 1701816041,
-        "narHash": "sha256-AhYd4TRTMqFKLh+n7jcW5Q36P9L1I9Fn66UEUgGRvvI=",
-        "owner": "PapenfussLab",
-        "repo": "bionix",
-        "rev": "ceeef8db39f0947f4f3bfbd2bd5e763582914b82",
-        "type": "github"
-      },
-      "original": {
-        "owner": "PapenfussLab",
-        "repo": "bionix",
-        "type": "github"
-      }
-    },
     "flake-compat": {
       "locked": {
         "lastModified": 1696426674,
@@ -328,7 +313,6 @@
     },
     "root": {
       "inputs": {
-        "bionix": "bionix",
         "home-manager": "home-manager",
         "hyprland": "hyprland",
         "nixpkgs": "nixpkgs_2",

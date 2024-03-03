@@ -48,53 +48,21 @@
       orgmode
     ];
     clipboard.register="unnamedplus";
-    keymaps = [
-      {
-        mode = "n";
-        key = "<leader>ne";
-        action = "<cmd>NvimTreeToggle<CR>";
-        options.desc = "Toggle file tree";
-      }
-      {
-        mode = "n";
-        key = "<leader>nf";
-        action = "<cmd>NvimTreeFindFile<CR>";
-        options.desc = "Show current file in tree";
-      }
-    ];
 
     plugins = {
-      auto-save = {
-        enable = true;
-        enableAutoSave = true;
-      };
       dashboard = {
         enable=true;
       };
       lsp={
         enable = true;
         servers = {
-          ansiblels.enable = true;
-          bashls.enable = true;
-          gopls.enable = true;
-          html.enable = true;
-          intelephense.enable = true;
-          jsonls.enable = true;
-          lua-ls.enable = true;
-          marksman.enable = true;
-          nil_ls.enable = true;
-          nushell.enable = true;
-          phpactor.enable = true;
-          pylsp.enable = true;
-          tsserver.enable = true;
-          # Vue support, better than the "vuels"
-          volar.enable = true;
-          yamlls.enable = true;
+          tsserver.enable=true;
           rust-analyzer = {
             enable = true;
             installCargo = false;
             installRustc = false;
           };
+          lua-ls.enable=true;
           rnix-lsp.enable=true;
         };
       };
@@ -104,9 +72,7 @@
       which-key.enable=true;
       nvim-autopairs.enable=true;
       neorg.enable=true;
-      nvim-tree = {
-        enable = true;
-      };
+      neo-tree.enable=true;
 
       treesitter = {
         enable=true;
@@ -121,28 +87,14 @@
       tmux-navigator.enable=true;
       nvim-cmp = {
         enable = true;
-        snippet.expand = "luasnip";
-        mapping = {
-          "<C-d>" = "cmp.mapping.scroll_docs(-4)";
-          "<C-f>" = "cmp.mapping.scroll_docs(4)";
-          "<C-Space>" = "cmp.mapping.complete()";
-          "<C-e>" = "cmp.mapping.close()";
-          "<CR>" = "cmp.mapping.confirm({ select = false })";
-        };
-        # NixVim has no mapping presets by default, so the default arrow keys don't work
-        # Adding "commandline" to mappingPresets breaks tab completion in normal command line
-        # I've never used cmp for the command line (or installed cmp-commandline), so I'll leave it at "insert" for now
-        mappingPresets = [ "insert" ];
+        autoEnableSources = true;
         sources = [
-          { name = "nvim_lsp"; }
-          { name = "luasnip"; }
-          {
-            name = "buffer";
-            option.get_bufnrs.__raw = "vim.api.nvim_list_bufs";
-          }
-          { name = "path"; }
-          { name = "emoji"; }
+          {name = "nvim_lsp";}
+          {name = "path";}
+          {name = "buffer";}
+          {name = "luasnip";}
         ];
+        snippet.expand="luasnip";
       };
       lualine = {
         enable = true;
