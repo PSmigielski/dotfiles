@@ -20,7 +20,8 @@
       ];
       
       exec-once = [
-        "blueman-manager"111
+        "blueman-manager"
+        "nm-applet"
         "waybar"
         "swaybg -i ~/photos/wallpapers/wallpaper.png"
         ''swayidle -w timeout 1800 'swaylock -f -i ~/photos/wallpapers/wallpaper.png' timeout 1805 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' before-sleep "swaylock -f -i ~/photos/wallpapers/wallpaper.png"''
