@@ -16,7 +16,7 @@
       "$mainMod" = "SUPER";
             monitor = [
         ",preferred,auto,auto"
-        "eDP-1,1920x1080@60,0x0,1"
+        "eDP-1,1920x1080cc@60,0x0,1"
       ];
       
       exec-once = [

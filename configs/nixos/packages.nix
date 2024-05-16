@@ -18,6 +18,8 @@
     discord
     spotify
     postman
+    caprine-bin
+    mattermost-desktop
     git
     vscode
     neofetch

@@ -15,6 +15,7 @@
       ./docker.nix
       ./sound.nix
       ./users.nix
+      ./virtualisation.nix
     ];
   
   time.timeZone = "Europe/Warsaw";
